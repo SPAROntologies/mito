@@ -1,0 +1,268 @@
+@prefix : <http://purl.org/spar/mito#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dc:creator a owl:AnnotationProperty .
+
+dc:date a owl:AnnotationProperty .
+
+dc:description a owl:AnnotationProperty .
+
+dc:rights a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+<http://purl.org/spar/mito> a owl:Ontology ;
+    dc:creator "Matteo Guenci (https://orcid.org/0009-0006-3139-1667)" ;
+    dc:date "2024-05-09" ;
+    dc:description """MiTO, the Mention Typing Ontology, is an ontology written in OWL 2 DL. Its aim is to enable the formalization of the concept of mentions.  
+
+The mentions may be either explicit (e.g. as when well stated into an article "Dr. Johnson's groundbreaking research on climate change") or implicit (e.g. such as discussing "seminal studies in the field").
+
+MiTO contains the object property mito:mentions and its inverse mito:isMentionedBy. More than that it also contains a few sibiling propertie which try to characterize the mention itself. Restrictions of domain and range are limited to the bare minimum in order to enhance interoperability with other SPAR ontologies and to allow the user to use this ontoloy as freely as possible."""@en ;
+    dc:rights "This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/)."@en ;
+    dc:title "MiTO, the Mention Typing Ontology"@en ;
+    rdfs:comment "This ontology is to be intended as an extension of the CiTO ontology, its aim is to include and formalize the concept of \"mention\"."@en ;
+    owl:versionIRI <http://purl.org/spar/mito/2024-05-09> .
+
+:hasMentionType a owl:ObjectProperty ;
+    rdfs:comment "A property that aims to define the implicit or explicit character of the mention it is describing"@en ;
+    rdfs:domain :Mention ;
+    rdfs:range :MentionType .
+
+:hasMentionedEntity a owl:ObjectProperty ;
+    rdfs:comment "A property that relates the mention to the mentioned entity."@en ;
+    rdfs:domain :Mention .
+
+:hasMentioningEntity a owl:ObjectProperty ;
+    rdfs:comment "A property that relates the mention to the mentioning entity."@en ;
+    rdfs:domain :Mention .
+
+:isMentionedBy a owl:ObjectProperty ;
+    rdfs:comment "A property that connect the two sides involved in the act of mentioning"@en ;
+    owl:inverseOf :mentions .
+
+:mention-1 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :explicit-mention ;
+    :hasMentionedEntity :dataset-1 ;
+    :hasMentioningEntity :article-1 .
+
+:mention-10 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :explicit-mention ;
+    :hasMentionedEntity :methodology-1,
+        :methodology-2 ;
+    :hasMentioningEntity :article-3,
+        :article-5 .
+
+:mention-11 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :implicit-mention ;
+    :hasMentionedEntity :person-1,
+        :person-2,
+        :person-3 ;
+    :hasMentioningEntity :article-2,
+        :article-3 .
+
+:mention-12 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :explicit-mention ;
+    :hasMentionedEntity :dataset-3,
+        :methodology-1 ;
+    :hasMentioningEntity :article-4,
+        :article-5 .
+
+:mention-2 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :explicit-mention ;
+    :hasMentionedEntity :methodology-1 ;
+    :hasMentioningEntity :article-1 .
+
+:mention-3 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :explicit-mention ;
+    :hasMentionedEntity :software-1 ;
+    :hasMentioningEntity :article-1 .
+
+:mention-4 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :implicit-mention ;
+    :hasMentionedEntity :person-1 ;
+    :hasMentioningEntity :article-1 .
+
+:mention-5 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :implicit-mention ;
+    :hasMentionedEntity :theory-1 ;
+    :hasMentioningEntity :article-1 .
+
+:mention-6 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :explicit-mention ;
+    :hasMentionedEntity :dataset-1,
+        :dataset-2 ;
+    :hasMentioningEntity :article-2 .
+
+:mention-7 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :implicit-mention ;
+    :hasMentionedEntity :person-1,
+        :person-2 ;
+    :hasMentioningEntity :article-3 .
+
+:mention-8 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :explicit-mention ;
+    :hasMentionedEntity :software-1,
+        :software-2 ;
+    :hasMentioningEntity :article-2,
+        :article-3 .
+
+:mention-9 a :Mention,
+        owl:NamedIndividual ;
+    :hasMentionType :implicit-mention ;
+    :hasMentionedEntity :theory-1,
+        :theory-2,
+        :theory-3 ;
+    :hasMentioningEntity :article-2,
+        :article-3,
+        :article-4 .
+
+:mentions a owl:ObjectProperty ;
+    rdfs:comment "A property that connect the two sides involved in the act of mentioning"@en .
+
+:dataset-2 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-2 .
+
+:MentionType a owl:Class ;
+    rdfs:comment "The aim of this class is to reify the implicit or explicit characteristic of a mention."@en .
+
+:dataset-3 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-4,
+        :article-5 .
+
+:methodology-2 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-3,
+        :article-5 .
+
+:person-3 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-2,
+        :article-3 .
+
+:software-2 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-2,
+        :article-3 .
+
+:dataset-1 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-1,
+        :article-2 .
+
+:person-2 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-2,
+        :article-3 .
+
+:theory-2 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-2,
+        :article-3,
+        :article-4 .
+
+:theory-3 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-2,
+        :article-3,
+        :article-4 .
+
+:article-5 a owl:NamedIndividual,
+        owl:Thing ;
+    :mentions :dataset-3,
+        :methodology-1,
+        :methodology-2 .
+
+:implicit-mention a :MentionType,
+        owl:NamedIndividual .
+
+:software-1 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-1,
+        :article-2,
+        :article-3 .
+
+:person-1 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-1,
+        :article-2,
+        :article-3 .
+
+:theory-1 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-1,
+        :article-2,
+        :article-3,
+        :article-4 .
+
+:article-4 a owl:NamedIndividual,
+        owl:Thing ;
+    :mentions :dataset-3,
+        :methodology-1,
+        :theory-1,
+        :theory-2,
+        :theory-3 .
+
+:explicit-mention a :MentionType,
+        owl:NamedIndividual .
+
+:methodology-1 a owl:NamedIndividual,
+        owl:Thing ;
+    :isMentionedBy :article-1,
+        :article-3,
+        :article-4,
+        :article-5 .
+
+:article-1 a owl:NamedIndividual,
+        owl:Thing ;
+    :mentions :dataset-1,
+        :methodology-1,
+        :person-1,
+        :software-1,
+        :theory-1 .
+
+:article-2 a owl:NamedIndividual,
+        owl:Thing ;
+    :mentions :dataset-1,
+        :dataset-2,
+        :person-1,
+        :person-2,
+        :person-3,
+        :software-1,
+        :software-2,
+        :theory-1,
+        :theory-2,
+        :theory-3 .
+
+:Mention a owl:Class ;
+    rdfs:comment """Originally: the action of calling to mind or commemorating something in speech or writing. Subsequently in more restricted sense: the action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
+Stated by https://www.oed.com/dictionary/mention_n?tl=true"""@en .
+
+:article-3 a owl:NamedIndividual,
+        owl:Thing ;
+    :mentions :methodology-1,
+        :methodology-2,
+        :person-1,
+        :person-2,
+        :person-3,
+        :software-1,
+        :software-2,
+        :theory-1,
+        :theory-2,
+        :theory-3 .
+
