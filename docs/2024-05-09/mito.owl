@@ -85,46 +85,46 @@ MiTO contains the object property mito:mentions and its inverse mito:isMentioned
     
 
 
-    <!-- http://purl.org/spar/mito#hasMentionType -->
+    <!-- http://purl.org/spar/mito/hasMentionType -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito#hasMentionType">
-        <rdfs:domain rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <rdfs:range rdf:resource="http://purl.org/spar/mito#MentionType"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito/hasMentionType">
+        <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
+        <rdfs:range rdf:resource="http://purl.org/spar/mito/MentionType"/>
         <rdfs:comment xml:lang="en">A property that aims to define the implicit or explicit character of the mention it is describing</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/spar/mito#hasMentionedEntity -->
+    <!-- http://purl.org/spar/mito/hasMentionedEntity -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito#hasMentionedEntity">
-        <rdfs:domain rdf:resource="http://purl.org/spar/mito#Mention"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito/hasMentionedEntity">
+        <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
         <rdfs:comment xml:lang="en">A property that relates the mention to the mentioned entity.</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/spar/mito#hasMentioningEntity -->
+    <!-- http://purl.org/spar/mito/hasMentioningEntity -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito#hasMentioningEntity">
-        <rdfs:domain rdf:resource="http://purl.org/spar/mito#Mention"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito/hasMentioningEntity">
+        <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
         <rdfs:comment xml:lang="en">A property that relates the mention to the mentioning entity.</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/spar/mito#isMentionedBy -->
+    <!-- http://purl.org/spar/mito/isMentionedBy -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito#isMentionedBy">
-        <owl:inverseOf rdf:resource="http://purl.org/spar/mito#mentions"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito/isMentionedBy">
+        <owl:inverseOf rdf:resource="http://purl.org/spar/mito/mentions"/>
         <rdfs:comment xml:lang="en">A property that connect the two sides involved in the act of mentioning</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://purl.org/spar/mito#mentions -->
+    <!-- http://purl.org/spar/mito/mentions -->
 
-    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito#mentions">
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/mito/mentions">
         <rdfs:comment xml:lang="en">A property that connect the two sides involved in the act of mentioning</rdfs:comment>
     </owl:ObjectProperty>
     
@@ -141,405 +141,22 @@ MiTO contains the object property mito:mentions and its inverse mito:isMentioned
     
 
 
-    <!-- http://purl.org/spar/mito#Mention -->
+    <!-- http://purl.org/spar/mito/Mention -->
 
-    <owl:Class rdf:about="http://purl.org/spar/mito#Mention">
+    <owl:Class rdf:about="http://purl.org/spar/mito/Mention">
         <rdfs:comment xml:lang="en">Originally: the action of calling to mind or commemorating something in speech or writing. Subsequently in more restricted sense: the action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
 Stated by https://www.oed.com/dictionary/mention_n?tl=true</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://purl.org/spar/mito#MentionType -->
+    <!-- http://purl.org/spar/mito/MentionType -->
 
-    <owl:Class rdf:about="http://purl.org/spar/mito#MentionType">
+    <owl:Class rdf:about="http://purl.org/spar/mito/MentionType">
         <rdfs:comment xml:lang="en">The aim of this class is to reify the implicit or explicit characteristic of a mention.</rdfs:comment>
     </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.org/spar/mito#article-1 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#article-1">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#dataset-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#methodology-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#person-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#software-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-1"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#article-2 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#article-2">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#dataset-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#dataset-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#person-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#person-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#person-3"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#software-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#software-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#article-3 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#article-3">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#methodology-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#methodology-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#person-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#person-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#person-3"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#software-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#software-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#article-4 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#article-4">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#dataset-3"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#methodology-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-2"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#theory-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#article-5 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#article-5">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#dataset-3"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#methodology-1"/>
-        <mentions rdf:resource="http://purl.org/spar/mito#methodology-2"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#dataset-1 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#dataset-1">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-1"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#dataset-2 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#dataset-2">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#dataset-3 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#dataset-3">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-4"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-5"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#explicit-mention -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#explicit-mention">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#MentionType"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#implicit-mention -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#implicit-mention">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#MentionType"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-1 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-1">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#explicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#dataset-1"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-10 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-10">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#explicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#methodology-1"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#methodology-2"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-3"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-5"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-11 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-11">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#implicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#person-1"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#person-2"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#person-3"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-12 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-12">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#explicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#dataset-3"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#methodology-1"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-4"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-5"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-2 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-2">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#explicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#methodology-1"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-3 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-3">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#explicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#software-1"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-4 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-4">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#implicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#person-1"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-5 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-5">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#implicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#theory-1"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-6 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-6">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#explicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#dataset-1"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#dataset-2"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-2"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-7 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-7">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#implicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#person-1"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#person-2"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-8 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-8">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#explicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#software-1"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#software-2"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#mention-9 -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/spar/mito#mention-9">
-        <rdf:type rdf:resource="http://purl.org/spar/mito#Mention"/>
-        <hasMentionType rdf:resource="http://purl.org/spar/mito#implicit-mention"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#theory-1"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#theory-2"/>
-        <hasMentionedEntity rdf:resource="http://purl.org/spar/mito#theory-3"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-3"/>
-        <hasMentioningEntity rdf:resource="http://purl.org/spar/mito#article-4"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/spar/mito#methodology-1 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#methodology-1">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-1"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-4"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-5"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#methodology-2 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#methodology-2">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-5"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#person-1 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#person-1">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-1"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#person-2 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#person-2">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#person-3 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#person-3">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#software-1 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#software-1">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-1"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#software-2 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#software-2">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#theory-1 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#theory-1">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-1"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-4"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#theory-2 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#theory-2">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-4"/>
-    </owl:Thing>
-    
-
-
-    <!-- http://purl.org/spar/mito#theory-3 -->
-
-    <owl:Thing rdf:about="http://purl.org/spar/mito#theory-3">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-2"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-3"/>
-        <isMentionedBy rdf:resource="http://purl.org/spar/mito#article-4"/>
-    </owl:Thing>
 </rdf:RDF>
+
 
 
 

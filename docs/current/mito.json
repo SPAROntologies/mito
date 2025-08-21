@@ -1,102 +1,29 @@
 [
   {
+    "@id": "http://purl.org/spar/mito/hasMentioningEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A property that relates the mention to the mentioning entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/spar/mito/Mention"
+      }
+    ]
+  },
+  {
     "@id": "http://purl.org/dc/elements/1.1/rights",
     "@type": [
       "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#article-4",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#mentions": [
-      {
-        "@id": "http://purl.org/spar/mito#dataset-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#methodology-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#person-3",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#theory-1",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-4"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#software-2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#methodology-2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-5"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#isMentionedBy",
+    "@id": "http://purl.org/spar/mito/mentions",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
@@ -105,96 +32,10 @@
         "@language": "en",
         "@value": "A property that connect the two sides involved in the act of mentioning"
       }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-        "@id": "http://purl.org/spar/mito#mentions"
-      }
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#mention-5",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#implicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#theory-1"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/description",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#person-1",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/date",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#explicit-mention",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#MentionType"
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#explicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#methodology-1"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#hasMentionedEntity",
+    "@id": "http://purl.org/spar/mito/hasMentionedEntity",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
@@ -206,90 +47,12 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://purl.org/spar/mito#Mention"
+        "@id": "http://purl.org/spar/mito/Mention"
       }
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#mention-10",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#explicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#methodology-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#methodology-2"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-5"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-4",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#implicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#person-1"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-12",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#explicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#dataset-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#methodology-1"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-4"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-5"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mentions",
+    "@id": "http://purl.org/spar/mito/isMentionedBy",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
@@ -298,119 +61,21 @@
         "@language": "en",
         "@value": "A property that connect the two sides involved in the act of mentioning"
       }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/spar/mito/mentions"
+      }
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#article-2",
+    "@id": "http://purl.org/dc/elements/1.1/title",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#mentions": [
-      {
-        "@id": "http://purl.org/spar/mito#dataset-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#dataset-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#software-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#software-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-3"
-      }
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#Mention",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Originally: the action of calling to mind or commemorating something in speech or writing. Subsequently in more restricted sense: the action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.\nStated by https://www.oed.com/dictionary/mention_n?tl=true"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-9",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#implicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#theory-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-3"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-4"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#article-1",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#mentions": [
-      {
-        "@id": "http://purl.org/spar/mito#dataset-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#methodology-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#software-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#hasMentionType",
+    "@id": "http://purl.org/spar/mito/hasMentionType",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
@@ -422,40 +87,48 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
-        "@id": "http://purl.org/spar/mito#Mention"
+        "@id": "http://purl.org/spar/mito/Mention"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://purl.org/spar/mito#MentionType"
+        "@id": "http://purl.org/spar/mito/MentionType"
       }
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#methodology-1",
+    "@id": "http://purl.org/dc/elements/1.1/description",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-4"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-5"
-      }
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/contributor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/date",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
     ]
   },
   {
     "@id": "http://purl.org/spar/mito",
     "@type": [
       "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/elements/1.1/contributor": [
+      {
+        "@value": "Silivo Peroni (https://orcid.org/0000-0003-0530-4305)"
+      }
     ],
     "http://purl.org/dc/elements/1.1/creator": [
       {
@@ -498,35 +171,19 @@
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#mention-8",
+    "@id": "http://purl.org/spar/mito/Mention",
     "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
+      "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://purl.org/spar/mito#hasMentionType": [
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
-        "@id": "http://purl.org/spar/mito#explicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#software-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#software-2"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
+        "@language": "en",
+        "@value": "Originally: the action of calling to mind or commemorating something in speech or writing. Subsequently in more restricted sense: the action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.\nStated by https://www.oed.com/dictionary/mention_n?tl=true"
       }
     ]
   },
   {
-    "@id": "http://purl.org/spar/mito#MentionType",
+    "@id": "http://purl.org/spar/mito/MentionType",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -534,335 +191,6 @@
       {
         "@language": "en",
         "@value": "The aim of this class is to reify the implicit or explicit characteristic of a mention."
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#person-2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-6",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#explicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#dataset-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#dataset-2"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#software-1",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/title",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#article-5",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#mentions": [
-      {
-        "@id": "http://purl.org/spar/mito#dataset-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#methodology-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#methodology-2"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#implicit-mention",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#MentionType"
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-3",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#explicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#software-1"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#theory-2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-4"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#dataset-2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#dataset-3",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-4"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-5"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-1",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#explicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#dataset-1"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#article-3",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#mentions": [
-      {
-        "@id": "http://purl.org/spar/mito#methodology-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#methodology-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#software-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#software-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#theory-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#hasMentioningEntity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A property that relates the mention to the mentioning entity."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/spar/mito#Mention"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#theory-3",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-4"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#dataset-1",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Thing",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://purl.org/spar/mito#isMentionedBy": [
-      {
-        "@id": "http://purl.org/spar/mito#article-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/creator",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#AnnotationProperty"
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-11",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#implicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#person-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-3"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-2"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/mito#mention-7",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito#Mention"
-    ],
-    "http://purl.org/spar/mito#hasMentionType": [
-      {
-        "@id": "http://purl.org/spar/mito#implicit-mention"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentionedEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#person-1"
-      },
-      {
-        "@id": "http://purl.org/spar/mito#person-2"
-      }
-    ],
-    "http://purl.org/spar/mito#hasMentioningEntity": [
-      {
-        "@id": "http://purl.org/spar/mito#article-3"
       }
     ]
   }
