@@ -1,0 +1,694 @@
+[
+  {
+    "@id": "http://purl.org/spar/mito",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/elements/1.1/contributor": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Silvio Peroni (https://orcid.org/0000-0003-0530-4305)"
+      },
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)"
+      }
+    ],
+    "http://purl.org/dc/elements/1.1/creator": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Matteo Guenci (https://orcid.org/0009-0006-3139-1667)"
+      }
+    ],
+    "http://purl.org/dc/elements/1.1/date": [
+      {
+        "@value": "2024-05-09"
+      }
+    ],
+    "http://purl.org/dc/elements/1.1/description": [
+      {
+        "@language": "en",
+        "@value": "\nThe _Mention Typing Ontology (MiTO)_ is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. This ontology aims to enhance interoperability with other SPAR ontologies by providing a flexible framework for describing mentions and their characteristics.\n\nMentions can be explicit (e.g., directly stated references in text, as when stated into an article \"Dr. Johnson's groundbreaking research on climate change\") or implicit (e.g., indirect references to entities or concepts, such as discussing \"seminal studies in the field\"). \n\nMiTO introduces the following key concepts:\n* **Mention**, which represents the act of referring to or introducing the name of a person, entity, or concept in discourse. \nThis class is defined with minimal restrictions to maximize usability across different contexts.\n* **MentionType**, which reifies the implicit or explicit nature of a mention, enabling users to classify mentions based on their characteristics.\n\nMiTO also defines several object properties to describe relationships between mentions and entities:\n* `mito:mentions` and its inverse `mito:isMentionedBy`, which connect the two sides involved in the act of mentioning.\n* `mito:hasMentionedEntity`, which relates a mention to the entity being mentioned.\n* `mito:hasMentioningEntity`, which relates a mention to the entity performing the act of mentioning.\n* `mito:hasMentionType`, which defines the implicit or explicit character of the mention.\n\n![The architecture of MiTO.](mito.png)\n\nMiTO is designed to integrate with other SPAR ontologies, which provides a modular framework for describing crucial aspects of bibliographic entities and their metadata. \n\n## Examples of use\n\nIn the following subsections, we introduce some examples to showcase how to use MiTO. \n\nThe prefixes that are used in all the examples provided below are defined as follows:\n\n    @prefix : <http://www.sparontologies.net/example/> .\n    @prefix mito: <http://purl.org/spar/mito/> .\n    @prefix fabio: <http://purl.org/spar/fabio/> .\n    @prefix oa: <http://www.w3.org/ns/oa#> .\n    @prefix dcterms: <http://purl.org/dc/terms/> .\n    @prefix foaf: <http://xmlns.com/foaf/0.1/> .\n    @prefix cnt: <http://www.w3.org/2011/content#> .\n    @prefix c4o: <http://purl.org/spar/c4o/> .\n    @prefix per: <http://data.semanticweb.org/person/> .\n\n### Defining mention links and their types (direct vs reified)\n\nMiTO lets you connect two resources where one (the _mentioning entity_, e.g., a paper) mentions another (the _mentioned entity_, e.g., a software, dataset, method), optionally qualifying the mention with a _mention type_ (e.g., explicit/implicit). \nAs with [CiTO](http://purl.org/spar/cito), you can use a direct triple (`mito:mentions`) or a reified mention (`mito:Mention`) to which you can attach further metadata such as the mention type.\n\n    :ml-paper-2024 a fabio:JournalArticle ;\n        dcterms:title \"Deep Learning Approaches for Medical Image Segmentation\" ;\n        mito:mentions :tensorflow .\n\n    :tensorflow a fabio:ComputerProgram ;\n        foaf:name \"TensorFlow\" ;\n        mito:isMentionedBy :ml-paper-2024 .\n\n    :mention-tensorflow a mito:Mention ;\n        mito:hasMentioningEntity :ml-paper-2024 ;\n        mito:hasMentionedEntity :tensorflow ;\n        mito:hasMentionType mito:explicit .\n\n    :vision-paper a fabio:JournalArticle ;\n        dcterms:title \"Novel Architectures for Biomedical Image Classification\" .\n\n    :imagenet a fabio:Dataset ;\n        dcterms:title \"ImageNet Large Scale Visual Recognition Challenge Dataset\" .\n\n    :vision-paper mito:mentions :imagenet .\n    \n    :dataset-mention a mito:Mention ;\n        mito:hasMentioningEntity :vision-paper ;\n        mito:hasMentionedEntity :imagenet ;\n        mito:hasMentionType mito:explicit .\n\n    :mention-annotation a oa:Annotation ;\n        oa:motivatedBy oa:commenting ;\n        oa:hasTarget :dataset-mention ;\n        oa:hasBody :usage-context .\n\n    :usage-context a cnt:ContentAsText ;\n        cnt:chars \"ImageNet is used exclusively for pre-training the backbone network, not for final model evaluation.\" .\n\n    :nlp-paper a fabio:JournalArticle ;\n        dcterms:title \"Contextual Embeddings for Scientific Text Classification\" .\n\n    :bert-method a fabio:ResearchPaper ;\n        dcterms:title \"Bidirectional Encoder Representations from Transformers\" .\n\n    :bert-mention a mito:Mention ;\n        mito:hasMentioningEntity :nlp-paper ;\n        mito:hasMentionedEntity :bert-method ;\n        mito:hasMentionType mito:explicit .\n\n    :bert-pointer a c4o:InTextReferencePointer ;\n        c4o:hasContent \"[BERT]\" .\n\n    :pointer-annotation a oa:Annotation ;\n        oa:hasTarget :bert-pointer ;\n        oa:hasBody :bert-mention ;\n        oa:annotatedBy per:research-team .\n\n    :nlp-paper mito:mentions :bert-method .\n\n    :stats-paper a fabio:JournalArticle ;\n        dcterms:title \"Bayesian Approaches to Uncertainty Quantification in Deep Learning\" .\n\n    :bayesian-theory a fabio:ResearchPaper ;\n        dcterms:title \"Bayesian Statistical Inference\" .\n\n    :stats-paper mito:mentions :bayesian-theory .\n\n    :implicit-theory-mention a mito:Mention ;\n        mito:hasMentioningEntity :stats-paper ;\n        mito:hasMentionedEntity :bayesian-theory ;\n        mito:hasMentionType mito:implicit .\n\n    :implicit-annotation a oa:Annotation ;\n        oa:motivatedBy oa:commenting ;\n        oa:hasTarget :implicit-theory-mention ;\n        oa:hasBody :implicit-explanation .\n\n    :implicit-explanation a cnt:ContentAsText ;\n        cnt:chars \"Bayesian theory is applied throughout the methodology but never explicitly referenced by name.\" .\n\n## Competency Questions\n\nMiTO can be used for answering several questions related to mentions in scholarly resources.\nIn the following subsections, some of them are introduced together with their respective SPARQL queries. \n\nThe prefixes that are used in all the SPARQL queries provided below are defined as follows:\n\n    PREFIX mito: <http://purl.org/spar/mito/>\n    PREFIX dcterms: <http://purl.org/dc/terms/>\n    PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n    PREFIX oa: <http://www.w3.org/ns/oa#>\n    PREFIX cnt: <http://www.w3.org/2011/content#>\n    PREFIX c4o: <http://purl.org/spar/c4o/>\n\n### CQ1\n\nWhich entities are mentioned by a document, along with their types and titles?\n\n    SELECT ?document ?mentionedEntity ?entityType ?entityName\n    WHERE {\n        ?document mito:mentions ?mentionedEntity .\n        ?mentionedEntity a ?entityType .\n        OPTIONAL { ?mentionedEntity dcterms:title ?entityName . }\n        OPTIONAL { ?mentionedEntity foaf:name ?entityName . }\n    }\n\n### CQ2\n\nWhat are the mentions, their types, and the entities involved?\n\n    SELECT ?mention ?mentioningEntity ?mentionedEntity ?mentionType\n    WHERE {\n        ?mention a mito:Mention ;\n            mito:hasMentioningEntity ?mentioningEntity ;\n            mito:hasMentionedEntity ?mentionedEntity ;\n            mito:hasMentionType ?mentionType .\n    }\n\n### CQ3\n\nWhat textual comments or annotations target a specific mention?\n\n    SELECT ?mention ?mentionType ?commentText\n    WHERE {\n        ?mention a mito:Mention ;\n            mito:hasMentionType ?mentionType .\n        ?annotation a oa:Annotation ;\n            oa:hasTarget ?mention ;\n            oa:hasBody ?body .\n        ?body cnt:chars ?commentText .\n    }\n\n### CQ4\n\nWhich in-text reference pointers are linked to a mention via annotations?\n\n    SELECT ?pointer ?pointerContent ?mention ?mentionedEntity ?annotator\n    WHERE {\n        ?pointer a c4o:InTextReferencePointer ;\n            c4o:hasContent ?pointerContent .\n        ?annotation a oa:Annotation ;\n            oa:hasTarget ?pointer ;\n            oa:hasBody ?mention .\n        ?mention a mito:Mention ;\n            mito:hasMentionedEntity ?mentionedEntity .\n        OPTIONAL { ?annotation oa:annotatedBy ?annotator . }\n    }\n\n"
+      }
+    ],
+    "http://purl.org/dc/elements/1.1/title": [
+      {
+        "@language": "en",
+        "@value": "The Mention Typing Ontology (MiTO)"
+      }
+    ],
+    "http://purl.org/dc/terms/bibliographicCitation": [
+      {
+        "@value": "Matteo Guenci. The Mention Typing Ontology. Revision: 1.1.0. http://purl.org/spar/mito."
+      }
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@value": "2024-05-09"
+      }
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+        "@value": "2024-05-09"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@value": "2026-08-14"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://ror.org/00wb4mk85"
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://github.com/SPAROntologies/mito/blob/master/docs/cq.md"
+      }
+    ],
+    "http://purl.org/ontology/bibo/doi": [
+      {
+        "@value": "TBA"
+      }
+    ],
+    "http://purl.org/ontology/bibo/status": [
+      {
+        "@id": "http://purl.org/ontology/bibo/status/published"
+      }
+    ],
+    "http://purl.org/vocab/vann/changes": [
+      {
+        "@language": "en",
+        "@value": "\n* **v1.1.0**: \nAdded new documentation, including annotation properties (e.g., `bibo:doi`, `schema:codeRepository`, etc.), term properties (e.g., `vann:example`, `vs:term_status`, etc.), exemplary competency questions with their respective SPARQL queries, and a Grafoo diagram.\nAdded new named individuals `mito:explicit` and `mito:implicit` (previously only mentioned in documentation as `mito:ExplicitMention` and `mito:ImplicitMention`).\nSpecified that `mito:Mention` is a subclass of `sit:Situation` and, as a consequence, its properties as subproperties of `sit:isSettingFor`.\n    "
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespacePrefix": [
+      {
+        "@language": "en",
+        "@value": "mito"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespaceUri": [
+      {
+        "@language": "en",
+        "@value": "http://purl.org/spar/mito"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.sparontologies.net/ontologies/mito"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#backwardCompatibleWith": [
+      {
+        "@id": "https://sparontologies.github.io/mito/2024-05-09/mito.xml"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#imports": [
+      {
+        "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#priorVersion": [
+      {
+        "@id": "https://sparontologies.github.io/mito/2024-05-09/mito.xml"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionIRI": [
+      {
+        "@id": "https://sparontologies.github.io/mito/2026-08-14/mito.xml"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "1.1.0"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/logo": [
+      {
+        "@id": "https://github.com/SPAROntologies/mito/blob/master/spar.png"
+      }
+    ],
+    "https://schema.org/codeRepository": [
+      {
+        "@id": "https://github.com/SPAROntologies/mito"
+      }
+    ],
+    "https://schema.org/image": [
+      {
+        "@id": "https://github.com/SPAROntologies/mito/blob/master/docs/current/mito.png"
+      }
+    ],
+    "https://schema.org/includedInDataCatalog": [
+      {
+        "@id": "https://fairsharing.org/"
+      }
+    ],
+    "https://schema.org/keywords": [
+      {
+        "@language": "en",
+        "@value": "semantic publishing"
+      },
+      {
+        "@language": "en",
+        "@value": "scholarly publishing"
+      },
+      {
+        "@language": "en",
+        "@value": "scholarly mentions"
+      },
+      {
+        "@language": "en",
+        "@value": "scientometrics"
+      },
+      {
+        "@language": "en",
+        "@value": "bibliometrics"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/explicit",
+    "@type": [
+      "http://purl.org/spar/mito/MentionType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentioningEntity :my-mentioning-entity ;\n        mito:hasMentionedEntity :my-mentioned-entity ;\n        mito:hasMentionType mito:explicit .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "\nA type of mention according to which there is a direct, unambiguous, and literal naming or stating of something within a text.\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "explicit"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/hasMentioningEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentioningEntity :my-mentioning-entity .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between a mention and a mentioning entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/spar/mito/Mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has mentioning entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/hasMentionType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentionType mito:explicit .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The implicit or explicit characterisation of the mention it is describing."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/spar/mito/Mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has mention type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://purl.org/spar/mito/MentionType"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/mentions",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n\t:my-journal-article a fabio:JournalArticle ;\n        dcterms:title \"Deep Learning Approaches for Medical Image Segmentation\" ;\n        mito:mentions :my-software .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between the two sides involved in the act of mentioning, with one entity mentioning the other."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "mentions"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between a situation and something that situation is a setting for."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is setting for"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A view on a set of entities. It can be seen as a 'relational context', reifying a relation."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "situation"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/isMentionedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-software a fabio:Software ;\n        dcterms:title \"Tensorflow\" ;\n        mito:isMentionedBy :my-journal-article .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between the two sides involved in the act of mentioning, with one entity being mentioned by the other."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "is mentioned by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+        "@id": "http://purl.org/spar/mito/mentions"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/implicit",
+    "@type": [
+      "http://purl.org/spar/mito/MentionType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentioningEntity :my-mentioning-entity ;\n        mito:hasMentionedEntity :my-mentioned-entity ;\n        mito:hasMentionType mito:implicit .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "\nA type of mention according to which something is suggested or understood through context rather than named directly within a text.\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "implicit"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/hasMentionedEntity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentionedEntity :my-mentioned-entity .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The relation between a mention and a mentioned entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+        "@id": "http://purl.org/spar/mito/Mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has mentioned entity"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/creator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/date",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/title",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/contributor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/MentionType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentionType mito:explicit .\n\n    mito:explicit a mito:MentionType .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The reified implicit or explicit characteristic of a mention."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "mention type"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/mito/Mention",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentioningEntity :my-mentioning-entity ;\n        mito:hasMentionedEntity :my-mentioned-entity ;\n        mito:hasMentionType mito:explicit .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "\nThe action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.\n"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "mention"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.oed.com/dictionary/mention_n?tl=true/"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b1"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#note": [
+      {
+        "@language": "en",
+        "@value": "\nOriginally: the action of calling to mind or commemorating something in speech or writing.\n    "
+      }
+    ]
+  },
+  {
+    "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b1",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2002/07/owl#intersectionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"
+          },
+          {
+            "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b2"
+          },
+          {
+            "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b3"
+          },
+          {
+            "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b2",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/spar/mito/hasMentionType"
+      }
+    ]
+  },
+  {
+    "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b3",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/spar/mito/hasMentionedEntity"
+      }
+    ]
+  },
+  {
+    "@id": "_:neede9b4d41a849a3bdcdb95f9dd2bfc7b4",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#cardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/spar/mito/hasMentioningEntity"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/rights",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    ]
+  }
+]

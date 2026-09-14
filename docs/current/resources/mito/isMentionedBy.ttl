@@ -1,0 +1,19 @@
+@prefix mito: <http://purl.org/spar/mito/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+mito:isMentionedBy a owl:ObjectProperty ;
+    rdfs:label "is mentioned by"@en ;
+    vann:example """
+    :my-software a fabio:Software ;
+        dcterms:title "Tensorflow" ;
+        mito:isMentionedBy :my-journal-article .
+    """ ;
+    rdfs:comment "The relation between the two sides involved in the act of mentioning, with one entity being mentioned by the other."@en ;
+    rdfs:isDefinedBy mito: ;
+    owl:inverseOf mito:mentions ;
+    vs:term_status reg:statusStable .
+

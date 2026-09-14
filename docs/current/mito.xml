@@ -1,75 +1,437 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
+   xmlns:bibo="http://purl.org/ontology/bibo/"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:schema="https://schema.org/"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
+  <rdf:Description rdf:about="http://purl.org/spar/mito/MentionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">mention type</rdfs:label>
+    <rdfs:comment xml:lang="en">The reified implicit or explicit characteristic of a mention.</rdfs:comment>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentionType mito:explicit .
+
+    mito:explicit a mito:MentionType .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is setting for</rdfs:label>
+    <rdfs:comment xml:lang="en">The relation between a situation and something that situation is a setting for.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionedEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has mentioned entity</rdfs:label>
+    <rdfs:comment xml:lang="en">The relation between a mention and a mentioned entity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentionedEntity :my-mentioned-entity .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has mention type</rdfs:label>
+    <rdfs:comment xml:lang="en">The implicit or explicit characterisation of the mention it is describing.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
+    <rdfs:range rdf:resource="http://purl.org/spar/mito/MentionType"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentionType mito:explicit .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silvio Peroni (https://orcid.org/0000-0003-0530-4305)</dc:contributor>
+    <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)</dc:contributor>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matteo Guenci (https://orcid.org/0009-0006-3139-1667)</dc:creator>
+    <dc:date>2024-05-09</dc:date>
+    <dc:description xml:lang="en">
+The _Mention Typing Ontology (MiTO)_ is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. This ontology aims to enhance interoperability with other SPAR ontologies by providing a flexible framework for describing mentions and their characteristics.
+
+Mentions can be explicit (e.g., directly stated references in text, as when stated into an article "Dr. Johnson's groundbreaking research on climate change") or implicit (e.g., indirect references to entities or concepts, such as discussing "seminal studies in the field"). 
+
+MiTO introduces the following key concepts:
+* **Mention**, which represents the act of referring to or introducing the name of a person, entity, or concept in discourse. 
+This class is defined with minimal restrictions to maximize usability across different contexts.
+* **MentionType**, which reifies the implicit or explicit nature of a mention, enabling users to classify mentions based on their characteristics.
+
+MiTO also defines several object properties to describe relationships between mentions and entities:
+* `mito:mentions` and its inverse `mito:isMentionedBy`, which connect the two sides involved in the act of mentioning.
+* `mito:hasMentionedEntity`, which relates a mention to the entity being mentioned.
+* `mito:hasMentioningEntity`, which relates a mention to the entity performing the act of mentioning.
+* `mito:hasMentionType`, which defines the implicit or explicit character of the mention.
+
+![The architecture of MiTO.](mito.png)
+
+MiTO is designed to integrate with other SPAR ontologies, which provides a modular framework for describing crucial aspects of bibliographic entities and their metadata. 
+
+## Examples of use
+
+In the following subsections, we introduce some examples to showcase how to use MiTO. 
+
+The prefixes that are used in all the examples provided below are defined as follows:
+
+    @prefix : &lt;http://www.sparontologies.net/example/&gt; .
+    @prefix mito: &lt;http://purl.org/spar/mito/&gt; .
+    @prefix fabio: &lt;http://purl.org/spar/fabio/&gt; .
+    @prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
+    @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+    @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+    @prefix cnt: &lt;http://www.w3.org/2011/content#&gt; .
+    @prefix c4o: &lt;http://purl.org/spar/c4o/&gt; .
+    @prefix per: &lt;http://data.semanticweb.org/person/&gt; .
+
+### Defining mention links and their types (direct vs reified)
+
+MiTO lets you connect two resources where one (the _mentioning entity_, e.g., a paper) mentions another (the _mentioned entity_, e.g., a software, dataset, method), optionally qualifying the mention with a _mention type_ (e.g., explicit/implicit). 
+As with [CiTO](http://purl.org/spar/cito), you can use a direct triple (`mito:mentions`) or a reified mention (`mito:Mention`) to which you can attach further metadata such as the mention type.
+
+    :ml-paper-2024 a fabio:JournalArticle ;
+        dcterms:title "Deep Learning Approaches for Medical Image Segmentation" ;
+        mito:mentions :tensorflow .
+
+    :tensorflow a fabio:ComputerProgram ;
+        foaf:name "TensorFlow" ;
+        mito:isMentionedBy :ml-paper-2024 .
+
+    :mention-tensorflow a mito:Mention ;
+        mito:hasMentioningEntity :ml-paper-2024 ;
+        mito:hasMentionedEntity :tensorflow ;
+        mito:hasMentionType mito:explicit .
+
+    :vision-paper a fabio:JournalArticle ;
+        dcterms:title "Novel Architectures for Biomedical Image Classification" .
+
+    :imagenet a fabio:Dataset ;
+        dcterms:title "ImageNet Large Scale Visual Recognition Challenge Dataset" .
+
+    :vision-paper mito:mentions :imagenet .
+    
+    :dataset-mention a mito:Mention ;
+        mito:hasMentioningEntity :vision-paper ;
+        mito:hasMentionedEntity :imagenet ;
+        mito:hasMentionType mito:explicit .
+
+    :mention-annotation a oa:Annotation ;
+        oa:motivatedBy oa:commenting ;
+        oa:hasTarget :dataset-mention ;
+        oa:hasBody :usage-context .
+
+    :usage-context a cnt:ContentAsText ;
+        cnt:chars "ImageNet is used exclusively for pre-training the backbone network, not for final model evaluation." .
+
+    :nlp-paper a fabio:JournalArticle ;
+        dcterms:title "Contextual Embeddings for Scientific Text Classification" .
+
+    :bert-method a fabio:ResearchPaper ;
+        dcterms:title "Bidirectional Encoder Representations from Transformers" .
+
+    :bert-mention a mito:Mention ;
+        mito:hasMentioningEntity :nlp-paper ;
+        mito:hasMentionedEntity :bert-method ;
+        mito:hasMentionType mito:explicit .
+
+    :bert-pointer a c4o:InTextReferencePointer ;
+        c4o:hasContent "[BERT]" .
+
+    :pointer-annotation a oa:Annotation ;
+        oa:hasTarget :bert-pointer ;
+        oa:hasBody :bert-mention ;
+        oa:annotatedBy per:research-team .
+
+    :nlp-paper mito:mentions :bert-method .
+
+    :stats-paper a fabio:JournalArticle ;
+        dcterms:title "Bayesian Approaches to Uncertainty Quantification in Deep Learning" .
+
+    :bayesian-theory a fabio:ResearchPaper ;
+        dcterms:title "Bayesian Statistical Inference" .
+
+    :stats-paper mito:mentions :bayesian-theory .
+
+    :implicit-theory-mention a mito:Mention ;
+        mito:hasMentioningEntity :stats-paper ;
+        mito:hasMentionedEntity :bayesian-theory ;
+        mito:hasMentionType mito:implicit .
+
+    :implicit-annotation a oa:Annotation ;
+        oa:motivatedBy oa:commenting ;
+        oa:hasTarget :implicit-theory-mention ;
+        oa:hasBody :implicit-explanation .
+
+    :implicit-explanation a cnt:ContentAsText ;
+        cnt:chars "Bayesian theory is applied throughout the methodology but never explicitly referenced by name." .
+
+## Competency Questions
+
+MiTO can be used for answering several questions related to mentions in scholarly resources.
+In the following subsections, some of them are introduced together with their respective SPARQL queries. 
+
+The prefixes that are used in all the SPARQL queries provided below are defined as follows:
+
+    PREFIX mito: &lt;http://purl.org/spar/mito/&gt;
+    PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+    PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+    PREFIX oa: &lt;http://www.w3.org/ns/oa#&gt;
+    PREFIX cnt: &lt;http://www.w3.org/2011/content#&gt;
+    PREFIX c4o: &lt;http://purl.org/spar/c4o/&gt;
+
+### CQ1
+
+Which entities are mentioned by a document, along with their types and titles?
+
+    SELECT ?document ?mentionedEntity ?entityType ?entityName
+    WHERE {
+        ?document mito:mentions ?mentionedEntity .
+        ?mentionedEntity a ?entityType .
+        OPTIONAL { ?mentionedEntity dcterms:title ?entityName . }
+        OPTIONAL { ?mentionedEntity foaf:name ?entityName . }
+    }
+
+### CQ2
+
+What are the mentions, their types, and the entities involved?
+
+    SELECT ?mention ?mentioningEntity ?mentionedEntity ?mentionType
+    WHERE {
+        ?mention a mito:Mention ;
+            mito:hasMentioningEntity ?mentioningEntity ;
+            mito:hasMentionedEntity ?mentionedEntity ;
+            mito:hasMentionType ?mentionType .
+    }
+
+### CQ3
+
+What textual comments or annotations target a specific mention?
+
+    SELECT ?mention ?mentionType ?commentText
+    WHERE {
+        ?mention a mito:Mention ;
+            mito:hasMentionType ?mentionType .
+        ?annotation a oa:Annotation ;
+            oa:hasTarget ?mention ;
+            oa:hasBody ?body .
+        ?body cnt:chars ?commentText .
+    }
+
+### CQ4
+
+Which in-text reference pointers are linked to a mention via annotations?
+
+    SELECT ?pointer ?pointerContent ?mention ?mentionedEntity ?annotator
+    WHERE {
+        ?pointer a c4o:InTextReferencePointer ;
+            c4o:hasContent ?pointerContent .
+        ?annotation a oa:Annotation ;
+            oa:hasTarget ?pointer ;
+            oa:hasBody ?mention .
+        ?mention a mito:Mention ;
+            mito:hasMentionedEntity ?mentionedEntity .
+        OPTIONAL { ?annotation oa:annotatedBy ?annotator . }
+    }
+
+</dc:description>
+    <dc:title xml:lang="en">The Mention Typing Ontology (MiTO)</dc:title>
+    <dcterms:bibliographicCitation>Matteo Guenci. The Mention Typing Ontology. Revision: 1.1.0. http://purl.org/spar/mito.</dcterms:bibliographicCitation>
+    <owl:backwardCompatibleWith rdf:resource="https://sparontologies.github.io/mito/2024-05-09/mito.xml"/>
+    <owl:priorVersion rdf:resource="https://sparontologies.github.io/mito/2024-05-09/mito.xml"/>
+    <owl:versionIRI rdf:resource="https://sparontologies.github.io/mito/2026-08-14/mito.xml"/>
+    <dcterms:created>2024-05-09</dcterms:created>
+    <dcterms:issued>2024-05-09</dcterms:issued>
+    <dcterms:modified>2026-08-14</dcterms:modified>
+    <bibo:doi>TBA</bibo:doi>
+    <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl"/>
+    <vann:preferredNamespacePrefix xml:lang="en">mito</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri xml:lang="en">http://purl.org/spar/mito</vann:preferredNamespaceUri>
+    <rdfs:seeAlso rdf:resource="http://www.sparontologies.net/ontologies/mito"/>
+    <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:publisher rdf:resource="https://ror.org/00wb4mk85"/>
+    <dcterms:source rdf:resource="https://github.com/SPAROntologies/mito/blob/master/docs/cq.md"/>
+    <foaf:logo rdf:resource="https://github.com/SPAROntologies/mito/blob/master/spar.png"/>
+    <schema:codeRepository rdf:resource="https://github.com/SPAROntologies/mito"/>
+    <schema:includedInDataCatalog rdf:resource="https://fairsharing.org/"/>
+    <bibo:status rdf:resource="http://purl.org/ontology/bibo/status/published"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.1.0</owl:versionInfo>
+    <schema:keywords xml:lang="en">semantic publishing</schema:keywords>
+    <schema:keywords xml:lang="en">scholarly publishing</schema:keywords>
+    <schema:keywords xml:lang="en">scholarly mentions</schema:keywords>
+    <schema:keywords xml:lang="en">scientometrics</schema:keywords>
+    <schema:keywords xml:lang="en">bibliometrics</schema:keywords>
+    <schema:image rdf:resource="https://github.com/SPAROntologies/mito/blob/master/docs/current/mito.png"/>
+    <vann:changes xml:lang="en">
+* **v1.1.0**: 
+Added new documentation, including annotation properties (e.g., `bibo:doi`, `schema:codeRepository`, etc.), term properties (e.g., `vann:example`, `vs:term_status`, etc.), exemplary competency questions with their respective SPARQL queries, and a Grafoo diagram.
+Added new named individuals `mito:explicit` and `mito:implicit` (previously only mentioned in documentation as `mito:ExplicitMention` and `mito:ImplicitMention`).
+Specified that `mito:Mention` is a subclass of `sit:Situation` and, as a consequence, its properties as subproperties of `sit:isSettingFor`.
+    </vann:changes>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentioningEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/isMentionedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is mentioned by</rdfs:label>
+    <rdfs:comment xml:lang="en">The relation between the two sides involved in the act of mentioning, with one entity being mentioned by the other.</rdfs:comment>
+    <owl:inverseOf rdf:resource="http://purl.org/spar/mito/mentions"/>
+    <vann:example>
+    :my-software a fabio:Software ;
+        dcterms:title "Tensorflow" ;
+        mito:isMentionedBy :my-journal-article .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/implicit">
+    <rdf:type rdf:resource="http://purl.org/spar/mito/MentionType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">implicit</rdfs:label>
+    <rdfs:comment xml:lang="en">
+A type of mention according to which something is suggested or understood through context rather than named directly within a text.
+    </rdfs:comment>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:implicit .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionedEntity"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/spar/mito/mentions">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment xml:lang="en">A property that connect the two sides involved in the act of mentioning</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/Mention">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">Originally: the action of calling to mind or commemorating something in speech or writing. Subsequently in more restricted sense: the action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
-Stated by https://www.oed.com/dictionary/mention_n?tl=true</rdfs:comment>
+    <rdfs:label xml:lang="en">mentions</rdfs:label>
+    <rdfs:comment xml:lang="en">The relation between the two sides involved in the act of mentioning, with one entity mentioning the other.</rdfs:comment>
+    <vann:example>
+	:my-journal-article a fabio:JournalArticle ;
+        dcterms:title "Deep Learning Approaches for Medical Image Segmentation" ;
+        mito:mentions :my-software .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/isMentionedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://purl.org/spar/mito/mentions"/>
-    <rdfs:comment xml:lang="en">A property that connect the two sides involved in the act of mentioning</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionIRI rdf:resource="http://purl.org/spar/mito/2024-05-09"/>
-    <dc:contributor>Silivo Peroni (https://orcid.org/0000-0003-0530-4305)</dc:contributor>
-    <dc:creator>Matteo Guenci (https://orcid.org/0009-0006-3139-1667)</dc:creator>
-    <dc:date>2024-05-09</dc:date>
-    <dc:description xml:lang="en">MiTO, the Mention Typing Ontology, is an ontology written in OWL 2 DL. Its aim is to enable the formalization of the concept of mentions.  
-
-The mentions may be either explicit (e.g. as when well stated into an article "Dr. Johnson's groundbreaking research on climate change") or implicit (e.g. such as discussing "seminal studies in the field").
-
-MiTO contains the object property mito:mentions and its inverse mito:isMentionedBy. More than that it also contains a few sibiling propertie which try to characterize the mention itself. Restrictions of domain and range are limited to the bare minimum in order to enhance interoperability with other SPAR ontologies and to allow the user to use this ontoloy as freely as possible.</dc:description>
-    <dc:rights xml:lang="en">This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</dc:rights>
-    <dc:title xml:lang="en">MiTO, the Mention Typing Ontology</dc:title>
-    <rdfs:comment xml:lang="en">This ontology is to be intended as an extension of the CiTO ontology, its aim is to include and formalize the concept of "mention".</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
-    <rdfs:range rdf:resource="http://purl.org/spar/mito/MentionType"/>
-    <rdfs:comment xml:lang="en">A property that aims to define the implicit or explicit character of the mention it is describing</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionedEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
-    <rdfs:comment xml:lang="en">A property that relates the mention to the mentioned entity.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentioningEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
-    <rdfs:comment xml:lang="en">A property that relates the mention to the mentioning entity.</rdfs:comment>
+  <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">situation</rdfs:label>
+    <rdfs:comment xml:lang="en">A view on a set of entities. It can be seen as a 'relational context', reifying a relation.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/MentionType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">The aim of this class is to reify the implicit or explicit characteristic of a mention.</rdfs:comment>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentioningEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has mentioning entity</rdfs:label>
+    <rdfs:comment xml:lang="en">The relation between a mention and a mentioning entity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b8">
+    <rdf:first rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b4"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b5">
+    <rdf:first rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    <rdf:rest rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b6"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b6">
+    <rdf:first rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b2"/>
+    <rdf:rest rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionType"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/Mention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">mention</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.oed.com/dictionary/mention_n?tl=true/"/>
+    <owl:equivalentClass rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b1"/>
+    <skos:note xml:lang="en">
+Originally: the action of calling to mind or commemorating something in speech or writing.
+    </skos:note>
+    <rdfs:comment xml:lang="en">
+The action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
+</rdfs:comment>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:explicit .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/explicit">
+    <rdf:type rdf:resource="http://purl.org/spar/mito/MentionType"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">explicit</rdfs:label>
+    <rdfs:comment xml:lang="en">
+A type of mention according to which there is a direct, unambiguous, and literal naming or stating of something within a text.
+    </rdfs:comment>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:explicit .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b7">
+    <rdf:first rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b3"/>
+    <rdf:rest rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b8"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="neede9b4d41a849a3bdcdb95f9dd2bfc7b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
 </rdf:RDF>

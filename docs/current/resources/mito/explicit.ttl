@@ -1,0 +1,22 @@
+@prefix mito: <http://purl.org/spar/mito/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+mito:explicit a mito:MentionType,
+        owl:NamedIndividual ;
+    rdfs:label "explicit"@en ;
+    vann:example """
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:explicit .
+    """ ;
+    rdfs:comment """
+A type of mention according to which there is a direct, unambiguous, and literal naming or stating of something within a text.
+    """@en ;
+    rdfs:isDefinedBy mito: ;
+    vs:term_status reg:statusStable .
+
