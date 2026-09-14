@@ -1,0 +1,37 @@
+@prefix mito: <http://purl.org/spar/mito/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix sit: <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mito:Mention a owl:Class ;
+    rdfs:label "mention"@en ;
+    vann:example """
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:explicit .
+    """ ;
+    rdfs:comment """
+The action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
+"""@en ;
+    rdfs:isDefinedBy mito: ;
+    rdfs:seeAlso <https://www.oed.com/dictionary/mention_n?tl=true/> ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( sit:Situation [ a owl:Restriction ;
+                        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onProperty mito:hasMentionType ] [ a owl:Restriction ;
+                        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onProperty mito:hasMentionedEntity ] [ a owl:Restriction ;
+                        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onProperty mito:hasMentioningEntity ] ) ] ;
+    vs:term_status reg:statusStable ;
+    skos:note """
+Originally: the action of calling to mind or commemorating something in speech or writing.
+    """@en .
+

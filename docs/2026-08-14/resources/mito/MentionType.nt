@@ -1,0 +1,6 @@
+<http://purl.org/spar/mito/MentionType> <http://purl.org/vocab/vann/example> "\n    :my-mention a mito:Mention ;\n        mito:hasMentionType mito:explicit .\n\n    mito:explicit a mito:MentionType .\n    " .
+<http://purl.org/spar/mito/MentionType> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/spar/mito/MentionType> <http://www.w3.org/2000/01/rdf-schema#comment> "The reified implicit or explicit characteristic of a mention."@en .
+<http://purl.org/spar/mito/MentionType> <http://www.w3.org/2000/01/rdf-schema#label> "mention type"@en .
+<http://purl.org/spar/mito/MentionType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/spar/mito/MentionType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/spar/mito/> .
