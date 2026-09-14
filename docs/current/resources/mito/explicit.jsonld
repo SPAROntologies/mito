@@ -1,0 +1,36 @@
+[
+  {
+    "@id": "http://purl.org/spar/mito/explicit",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://purl.org/spar/mito/MentionType"
+    ],
+    "http://purl.org/vocab/vann/example": [
+      {
+        "@value": "\n    :my-mention a mito:Mention ;\n        mito:hasMentioningEntity :my-mentioning-entity ;\n        mito:hasMentionedEntity :my-mentioned-entity ;\n        mito:hasMentionType mito:explicit .\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "\nA type of mention according to which there is a direct, unambiguous, and literal naming or stating of something within a text.\n    "
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "http://purl.org/spar/mito/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "explicit"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+        "@id": "http://purl.org/linked-data/registry#statusStable"
+      }
+    ]
+  }
+]

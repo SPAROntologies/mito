@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b6">
+    <rdf:first rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b2"/>
+    <rdf:rest rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b7"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b3">
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionedEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/Mention">
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:explicit .
+    </vann:example>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">mention</rdfs:label>
+    <rdfs:comment xml:lang="en">
+The action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
+</rdfs:comment>
+    <owl:equivalentClass rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b1"/>
+    <rdfs:seeAlso rdf:resource="https://www.oed.com/dictionary/mention_n?tl=true/"/>
+    <skos:note xml:lang="en">
+Originally: the action of calling to mind or commemorating something in speech or writing.
+    </skos:note>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b4">
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentioningEntity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b7">
+    <rdf:first rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b3"/>
+    <rdf:rest rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b8">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b5">
+    <rdf:first rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    <rdf:rest rdf:nodeID="nb436a96943db4db4a87d53f10fdd5f13b6"/>
+  </rdf:Description>
+</rdf:RDF>

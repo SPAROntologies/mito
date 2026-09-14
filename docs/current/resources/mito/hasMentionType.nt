@@ -1,0 +1,9 @@
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/2000/01/rdf-schema#comment> "The implicit or explicit characterisation of the mention it is describing."@en .
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/spar/mito/> .
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/spar/mito/MentionType> .
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/2000/01/rdf-schema#label> "has mention type"@en .
+<http://purl.org/spar/mito/hasMentionType> <http://purl.org/vocab/vann/example> "\n    :my-mention a mito:Mention ;\n        mito:hasMentionType mito:explicit .\n    " .
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/spar/mito/Mention> .
+<http://purl.org/spar/mito/hasMentionType> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor> .

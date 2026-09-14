@@ -1,0 +1,21 @@
+@prefix mito: <http://purl.org/spar/mito/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix sit: <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+mito:hasMentionType a owl:ObjectProperty ;
+    rdfs:label "has mention type"@en ;
+    vann:example """
+    :my-mention a mito:Mention ;
+        mito:hasMentionType mito:explicit .
+    """ ;
+    rdfs:comment "The implicit or explicit characterisation of the mention it is describing."@en ;
+    rdfs:domain mito:Mention ;
+    rdfs:isDefinedBy mito: ;
+    rdfs:range mito:MentionType ;
+    rdfs:subPropertyOf sit:isSettingFor ;
+    vs:term_status reg:statusStable .
+

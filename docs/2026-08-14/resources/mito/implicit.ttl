@@ -1,0 +1,22 @@
+@prefix mito: <http://purl.org/spar/mito/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+mito:implicit a mito:MentionType,
+        owl:NamedIndividual ;
+    rdfs:label "implicit"@en ;
+    vann:example """
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:implicit .
+    """ ;
+    rdfs:comment """
+A type of mention according to which something is suggested or understood through context rather than named directly within a text.
+    """@en ;
+    rdfs:isDefinedBy mito: ;
+    vs:term_status reg:statusStable .
+

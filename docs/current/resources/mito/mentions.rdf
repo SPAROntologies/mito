@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/mentions">
+    <vann:example>
+	:my-journal-article a fabio:JournalArticle ;
+        dcterms:title "Deep Learning Approaches for Medical Image Segmentation" ;
+        mito:mentions :my-software .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between the two sides involved in the act of mentioning, with one entity mentioning the other.</rdfs:comment>
+    <rdfs:label xml:lang="en">mentions</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito/"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+</rdf:RDF>
