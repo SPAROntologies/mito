@@ -6,5 +6,5 @@ sit:isSettingFor a owl:ObjectProperty ;
     rdfs:label "is setting for"@en ;
     rdfs:comment "The relation between a situation and something that situation is a setting for."@en ;
     rdfs:domain sit:Situation ;
-    rdfs:isDefinedBy sit: .
+    rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> .
 

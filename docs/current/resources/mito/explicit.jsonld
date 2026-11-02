@@ -2,8 +2,8 @@
   {
     "@id": "http://purl.org/spar/mito/explicit",
     "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "http://purl.org/spar/mito/MentionType"
+      "http://purl.org/spar/mito/MentionType",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
     ],
     "http://purl.org/vocab/vann/example": [
       {
@@ -18,7 +18,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "http://purl.org/spar/mito/"
+        "@id": "http://purl.org/spar/mito"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [

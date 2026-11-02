@@ -1,6 +1,12 @@
 # Mention Typing Ontology (MiTO)
 
-The Mention Typing Ontology (MiTO) is an ontology written in OWL 2 DL. Its aim is to enable the formalization of the concept of mentions.  
+[![License](https://img.shields.io/github/license/SPAROntologies/mito)](LICENSE.md)
+[![Release](https://img.shields.io/github/v/release/SPAROntologies/mito)](https://github.com/SPAROntologies/mito/releases/latest)
+[![Tests](https://img.shields.io/github/actions/workflow/status/SPAROntologies/mito/validation.yml?label=tests)](https://github.com/SPAROntologies/mito/actions/workflows/validation.yml)
+[![Documentation](https://img.shields.io/badge/docs-sparontologies.net-blue)](http://www.sparontologies.net/ontologies/mito)
+[![IRI](https://img.shields.io/badge/IRI-purl.org%2Fspar%2Fmito-blue)](http://purl.org/spar/mito)
+
+The **_Mention Typing Ontology (MiTO)_** is an ontology written in OWL 2 DL. Its aim is to enable the formalization of the concept of mentions.
 
 **URL:** http://purl.org/spar/mito
 

@@ -20,7 +20,7 @@ mito:Mention a owl:Class ;
     rdfs:comment """
 The action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
 """@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     rdfs:seeAlso <https://www.oed.com/dictionary/mention_n?tl=true/> ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( sit:Situation [ a owl:Restriction ;

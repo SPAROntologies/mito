@@ -22,24 +22,21 @@ dc:date a owl:AnnotationProperty .
 
 dc:description a owl:AnnotationProperty .
 
-dc:rights a owl:AnnotationProperty .
-
 dc:title a owl:AnnotationProperty .
 
 <http://purl.org/spar/mito> a owl:Ontology ;
     dc:contributor "Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)"^^xsd:string,
         "Silvio Peroni (https://orcid.org/0000-0003-0530-4305)"^^xsd:string ;
     dc:creator "Matteo Guenci (https://orcid.org/0009-0006-3139-1667)"^^xsd:string ;
-    dc:date "2026-08-14" ;
+    dc:date "2026-10-05" ;
     dc:description """
-The **_Mention Typing Ontology (MiTO)_** is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. This ontology aims to enhance interoperability with other SPAR ontologies by providing a flexible framework for describing mentions and their characteristics.
-
-Mentions can be explicit (e.g., directly stated references in text, as when stated into an article "Dr. Johnson's groundbreaking research on climate change") or implicit (e.g., indirect references to entities or concepts, such as discussing "seminal studies in the field"). 
+The **_Mention Typing Ontology (MiTO)_** is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. 
 
 MiTO introduces the following key concepts:
 * **Mention**, which represents the act of referring to or introducing the name of a person, entity, or concept in discourse. 
 This class is defined with minimal restrictions to maximize usability across different contexts.
 * **MentionType**, which reifies the implicit or explicit nature of a mention, enabling users to classify mentions based on their characteristics.
+Mentions can be explicit (e.g., directly stated references in text, as when stated into an article _Dr. Johnson's groundbreaking research on climate change_) or implicit (e.g., indirect references to entities or concepts, such as discussing "seminal studies in the field"). 
 
 MiTO also defines several object properties to describe relationships between mentions and entities:
 * `mito:mentions` and its inverse `mito:isMentionedBy`, which connect the two sides involved in the act of mentioning.
@@ -217,34 +214,33 @@ Which in-text reference pointers are linked to a mention via annotations?
     }
 """@en ;
     dc:title "The Mention Typing Ontology (MiTO)"@en ;
-    dcterms:bibliographicCitation "Matteo Guenci. The Mention Typing Ontology. Revision: 1.1.0. http://purl.org/spar/mito." ;
+    dcterms:bibliographicCitation "Pride, D., Guenci, M., Docekal, M., Peroni, S., & Knoth, P. (2025, December). Identifying and classifying software mentions in full text scholarly documents. In 2025 ACM/IEEE Joint Conference on Digital Libraries (JCDL) (pp. 261-264). IEEE. DOI: https://doi.org/10.1109/JCDL67857.2025.00041" ;
     dcterms:created "2024-05-09" ;
     dcterms:issued "2024-05-09" ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-08-14" ;
+    dcterms:modified "2026-10-05" ;
     dcterms:publisher <https://ror.org/00wb4mk85> ;
     dcterms:source <https://github.com/SPAROntologies/mito/blob/master/docs/cq.md> ;
     bibo:doi "TBA" ;
     bibo:status <http://purl.org/ontology/bibo/status/published> ;
-    vann:changes """
-* **v1.1.0**: 
-Added new documentation, including annotation properties (e.g., `bibo:doi`, `schema:codeRepository`, etc.), term properties (e.g., `vann:example`, `vs:term_status`, etc.), exemplary competency questions with their respective SPARQL queries, and a Grafoo diagram.
-Added new named individuals `mito:explicit` and `mito:implicit` (previously only mentioned in documentation as `mito:ExplicitMention` and `mito:ImplicitMention`).
-Specified that `mito:Mention` is a subclass of `sit:Situation` and, as a consequence, its properties as subproperties of `sit:isSettingFor`.
-    """@en ;
+    vann:changes <https://github.com/SPAROntologies/mito/blob/master/CHANGELOG.md> ;
     vann:preferredNamespacePrefix "mito"@en ;
     vann:preferredNamespaceUri "http://purl.org/spar/mito"@en ;
     rdfs:seeAlso <http://www.sparontologies.net/ontologies/mito> ;
-    owl:backwardCompatibleWith mito:2024-05-09 ;
+    owl:backwardCompatibleWith mito:2026-08-14 ;
     owl:imports <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> ;
-    owl:priorVersion mito:2024-05-09 ;
-    owl:versionIRI mito:2026-08-14 ;
-    owl:versionInfo "1.1.0"^^xsd:string ;
-    foaf:logo <https://github.com/SPAROntologies/mito/blob/master/spar.png> ;
+    owl:priorVersion mito:2026-08-14 ;
+    owl:versionIRI mito:2026-10-05 ;
+    owl:versionInfo "1.1.1"^^xsd:string ;
+    foaf:logo <https://github.com/SPAROntologies/sparontologies.github.io/blob/master/static/img/spar/spar-logo.png> ;
     schema:codeRepository <https://github.com/SPAROntologies/mito> ;
     schema:image <https://github.com/SPAROntologies/mito/blob/master/docs/current/mito.png> ;
     schema:includedInDataCatalog <https://fairsharing.org/> ;
-    schema:keywords "bibliometrics"@en,
+    dc:language <http://id.loc.gov/vocabulary/iso639-2/eng> ;
+    schema:keywords 
+        "SPAR Ontologies"@en ,
+        "Semantic Publishing and Referencing Ontologies"@en ,
+        "bibliometrics"@en,
         "scholarly mentions"@en,
         "scholarly publishing"@en,
         "scientometrics"@en,
@@ -262,7 +258,7 @@ mito:explicit a mito:MentionType,
     rdfs:comment """
 A type of mention according to which there is a direct, unambiguous, and literal naming or stating of something within a text.
     """@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     vs:term_status reg:statusStable .
 
 mito:implicit a mito:MentionType,
@@ -277,7 +273,7 @@ mito:implicit a mito:MentionType,
     rdfs:comment """
 A type of mention according to which something is suggested or understood through context rather than named directly within a text.
     """@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     vs:term_status reg:statusStable .
 
 mito:isMentionedBy a owl:ObjectProperty ;
@@ -288,7 +284,7 @@ mito:isMentionedBy a owl:ObjectProperty ;
         mito:isMentionedBy :my-journal-article .
     """ ;
     rdfs:comment "The relation between the two sides involved in the act of mentioning, with one entity being mentioned by the other."@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     owl:inverseOf mito:mentions ;
     vs:term_status reg:statusStable .
 
@@ -298,9 +294,9 @@ mito:hasMentionType a owl:ObjectProperty ;
     :my-mention a mito:Mention ;
         mito:hasMentionType mito:explicit .
     """ ;
-    rdfs:comment "The implicit or explicit characterisation of the mention it is describing."@en ;
+    rdfs:comment "The relation between a mention and the characterisation of that mention."@en ;
     rdfs:domain mito:Mention ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     rdfs:range mito:MentionType ;
     rdfs:subPropertyOf sit:isSettingFor ;
     vs:term_status reg:statusStable .
@@ -313,8 +309,21 @@ mito:hasMentionedEntity a owl:ObjectProperty ;
     """ ;
     rdfs:comment "The relation between a mention and a mentioned entity."@en ;
     rdfs:domain mito:Mention ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     rdfs:subPropertyOf sit:isSettingFor ;
+    vs:term_status reg:statusStable .
+
+mito:isMentionedEntityOf a owl:ObjectProperty ;
+    rdfs:label "is mentioned entity of"@en ;
+    vann:example """
+    :my-mentioned-entity 
+        mito:isMentionedEntityOf :my-mention .
+
+    :my-mention a mito:Mention .
+    """ ;
+    rdfs:comment "The relation between a mentioned entity and a mention."@en ;
+    owl:inverseOf mito:hasMentionedEntity ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     vs:term_status reg:statusStable .
 
 mito:hasMentioningEntity a owl:ObjectProperty ;
@@ -325,8 +334,21 @@ mito:hasMentioningEntity a owl:ObjectProperty ;
     """ ;
     rdfs:comment "The relation between a mention and a mentioning entity."@en ;
     rdfs:domain mito:Mention ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     rdfs:subPropertyOf sit:isSettingFor ;
+    vs:term_status reg:statusStable .
+
+mito:isMentioningEntityOf a owl:ObjectProperty ;
+    rdfs:label "is mentioning entity of"@en ;
+    vann:example """
+    :my-mentioning-entity 
+        mito:isMentioningEntityOf :my-mention .
+
+    :my-mention a mito:Mention .
+    """ ;
+    rdfs:comment "The relation between a mentioning entity and a mention."@en ;
+    owl:inverseOf mito:hasMentioningEntity ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     vs:term_status reg:statusStable .
 
 mito:mentions a owl:ObjectProperty ;
@@ -337,13 +359,13 @@ mito:mentions a owl:ObjectProperty ;
         mito:mentions :my-software .
     """ ;
     rdfs:comment "The relation between the two sides involved in the act of mentioning, with one entity mentioning the other."@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     vs:term_status reg:statusStable .
 
 sit:Situation a owl:Class ;
     rdfs:label "situation"@en ;
-    rdfs:comment "A view on a set of entities. It can be seen as a 'relational context', reifying a relation."@en ;
-    rdfs:isDefinedBy sit: .
+    rdfs:comment "A view on a set of entities. It can be seen as a _relational context_, reifying a relation."@en ;
+    rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> .
 
 mito:Mention a owl:Class ;
     rdfs:label "mention"@en ;
@@ -356,7 +378,7 @@ mito:Mention a owl:Class ;
     rdfs:comment """
 The action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
 """@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     rdfs:seeAlso <https://www.oed.com/dictionary/mention_n?tl=true/> ;
     owl:equivalentClass [ a owl:Class ;
             owl:intersectionOf ( sit:Situation [ a owl:Restriction ;
@@ -380,12 +402,12 @@ mito:MentionType a owl:Class ;
     mito:explicit a mito:MentionType .
     """ ;
     rdfs:comment "The reified implicit or explicit characteristic of a mention."@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     vs:term_status reg:statusStable .
 
 sit:isSettingFor a owl:ObjectProperty ;
     rdfs:label "is setting for"@en ;
     rdfs:comment "The relation between a situation and something that situation is a setting for."@en ;
     rdfs:domain sit:Situation ;
-    rdfs:isDefinedBy sit: .
+    rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> .
 

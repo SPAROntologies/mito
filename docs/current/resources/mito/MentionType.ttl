@@ -14,6 +14,6 @@ mito:MentionType a owl:Class ;
     mito:explicit a mito:MentionType .
     """ ;
     rdfs:comment "The reified implicit or explicit characteristic of a mention."@en ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     vs:term_status reg:statusStable .
 

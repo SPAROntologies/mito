@@ -17,7 +17,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "http://purl.org/spar/mito/"
+        "@id": "http://purl.org/spar/mito"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -33,7 +33,7 @@
     ],
     "http://www.w3.org/2002/07/owl#equivalentClass": [
       {
-        "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b1"
+        "@id": "_:n71f44db0a73149da9c34cf6720e7687cb1"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -49,7 +49,7 @@
     ]
   },
   {
-    "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b1",
+    "@id": "_:n71f44db0a73149da9c34cf6720e7687cb1",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
@@ -60,20 +60,20 @@
             "@id": "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"
           },
           {
-            "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b2"
+            "@id": "_:n71f44db0a73149da9c34cf6720e7687cb2"
           },
           {
-            "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b3"
+            "@id": "_:n71f44db0a73149da9c34cf6720e7687cb3"
           },
           {
-            "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b4"
+            "@id": "_:n71f44db0a73149da9c34cf6720e7687cb4"
           }
         ]
       }
     ]
   },
   {
-    "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b2",
+    "@id": "_:n71f44db0a73149da9c34cf6720e7687cb2",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -90,7 +90,7 @@
     ]
   },
   {
-    "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b3",
+    "@id": "_:n71f44db0a73149da9c34cf6720e7687cb3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -107,7 +107,7 @@
     ]
   },
   {
-    "@id": "_:nb436a96943db4db4a87d53f10fdd5f13b4",
+    "@id": "_:n71f44db0a73149da9c34cf6720e7687cb4",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],

@@ -12,7 +12,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "The implicit or explicit characterisation of the mention it is describing."
+        "@value": "The relation between a mention and the characterisation of that mention."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#domain": [
@@ -22,7 +22,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "http://purl.org/spar/mito/"
+        "@id": "http://purl.org/spar/mito"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [

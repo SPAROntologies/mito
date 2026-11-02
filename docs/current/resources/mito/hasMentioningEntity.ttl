@@ -14,7 +14,7 @@ mito:hasMentioningEntity a owl:ObjectProperty ;
     """ ;
     rdfs:comment "The relation between a mention and a mentioning entity."@en ;
     rdfs:domain mito:Mention ;
-    rdfs:isDefinedBy mito: ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
     rdfs:subPropertyOf sit:isSettingFor ;
     vs:term_status reg:statusStable .
 

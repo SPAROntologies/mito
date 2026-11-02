@@ -22,7 +22,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-        "@id": "http://purl.org/spar/mito/"
+        "@id": "http://purl.org/spar/mito"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
