@@ -30,14 +30,13 @@ dc:title a owl:AnnotationProperty .
     dc:creator "Matteo Guenci (https://orcid.org/0009-0006-3139-1667)"^^xsd:string ;
     dc:date "2026-10-05" ;
     dc:description """
-The **_Mention Typing Ontology (MiTO)_** is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. This ontology aims to enhance interoperability with other SPAR ontologies by providing a flexible framework for describing mentions and their characteristics.
-
-Mentions can be explicit (e.g., directly stated references in text, as when stated into an article _Dr. Johnson's groundbreaking research on climate change_) or implicit (e.g., indirect references to entities or concepts, such as discussing "seminal studies in the field"). 
+The **_Mention Typing Ontology (MiTO)_** is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. 
 
 MiTO introduces the following key concepts:
 * **Mention**, which represents the act of referring to or introducing the name of a person, entity, or concept in discourse. 
 This class is defined with minimal restrictions to maximize usability across different contexts.
 * **MentionType**, which reifies the implicit or explicit nature of a mention, enabling users to classify mentions based on their characteristics.
+Mentions can be explicit (e.g., directly stated references in text, as when stated into an article _Dr. Johnson's groundbreaking research on climate change_) or implicit (e.g., indirect references to entities or concepts, such as discussing "seminal studies in the field"). 
 
 MiTO also defines several object properties to describe relationships between mentions and entities:
 * `mito:mentions` and its inverse `mito:isMentionedBy`, which connect the two sides involved in the act of mentioning.
