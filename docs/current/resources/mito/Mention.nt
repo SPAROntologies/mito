@@ -1,28 +1,28 @@
-_:nbadb7f1f116c4e08a2b40be1d927d971b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nbadb7f1f116c4e08a2b40be1d927d971b4 .
-<http://purl.org/spar/mito/Mention> <http://www.w3.org/2002/07/owl#equivalentClass> _:nbadb7f1f116c4e08a2b40be1d927d971b1 .
-_:nbadb7f1f116c4e08a2b40be1d927d971b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nbadb7f1f116c4e08a2b40be1d927d971b7 .
-_:nbadb7f1f116c4e08a2b40be1d927d971b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nbadb7f1f116c4e08a2b40be1d927d971b3 .
-_:nbadb7f1f116c4e08a2b40be1d927d971b3 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:nbadb7f1f116c4e08a2b40be1d927d971b2 .
-_:nbadb7f1f116c4e08a2b40be1d927d971b7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nbadb7f1f116c4e08a2b40be1d927d971b8 .
-<http://purl.org/spar/mito/Mention> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/spar/mito> .
-<http://purl.org/spar/mito/Mention> <http://purl.org/vocab/vann/example> "\n    :my-mention a mito:Mention ;\n        mito:hasMentioningEntity :my-mentioning-entity ;\n        mito:hasMentionedEntity :my-mentioned-entity ;\n        mito:hasMentionType mito:explicit .\n    " .
-_:nbadb7f1f116c4e08a2b40be1d927d971b1 <http://www.w3.org/2002/07/owl#intersectionOf> _:nbadb7f1f116c4e08a2b40be1d927d971b5 .
-_:nbadb7f1f116c4e08a2b40be1d927d971b2 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/spar/mito/hasMentionType> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b4 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/spar/mito/hasMentioningEntity> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b2 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-<http://purl.org/spar/mito/Mention> <http://www.w3.org/2004/02/skos/core#note> "\nOriginally: the action of calling to mind or commemorating something in speech or writing.\n    "@en .
+_:n597af7696e064799a62a4f093c39bbabb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n597af7696e064799a62a4f093c39bbabb2 .
+_:n597af7696e064799a62a4f093c39bbabb1 <http://www.w3.org/2002/07/owl#intersectionOf> _:n597af7696e064799a62a4f093c39bbabb5 .
+<http://purl.org/spar/mito/Mention> <http://www.w3.org/2002/07/owl#equivalentClass> _:n597af7696e064799a62a4f093c39bbabb1 .
 <http://purl.org/spar/mito/Mention> <http://www.w3.org/2000/01/rdf-schema#comment> "\nThe action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.\n"@en .
-<http://purl.org/spar/mito/Mention> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.oed.com/dictionary/mention_n?tl=true/> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:nbadb7f1f116c4e08a2b40be1d927d971b6 .
-_:nbadb7f1f116c4e08a2b40be1d927d971b4 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
-_:nbadb7f1f116c4e08a2b40be1d927d971b3 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/spar/mito/hasMentionedEntity> .
-<http://purl.org/spar/mito/Mention> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
 <http://purl.org/spar/mito/Mention> <http://www.w3.org/2000/01/rdf-schema#label> "mention"@en .
-_:nbadb7f1f116c4e08a2b40be1d927d971b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n597af7696e064799a62a4f093c39bbabb2 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<http://purl.org/spar/mito/Mention> <http://www.w3.org/2004/02/skos/core#note> "\nOriginally: the action of calling to mind or commemorating something in speech or writing.\n    "@en .
+_:n597af7696e064799a62a4f093c39bbabb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n597af7696e064799a62a4f093c39bbabb7 .
+_:n597af7696e064799a62a4f093c39bbabb3 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/spar/mito/hasMentionedEntity> .
 <http://purl.org/spar/mito/Mention> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/spar/mito/Mention> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/spar/mito> .
+_:n597af7696e064799a62a4f093c39bbabb4 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:n597af7696e064799a62a4f093c39bbabb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://purl.org/spar/mito/Mention> <http://purl.org/vocab/vann/example> "\n    :my-mention a mito:Mention ;\n        mito:hasMentioningEntity :my-mentioning-entity ;\n        mito:hasMentionedEntity :my-mentioned-entity ;\n        mito:hasMentionType mito:explicit .\n    " .
+_:n597af7696e064799a62a4f093c39bbabb2 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/spar/mito/hasMentionType> .
+_:n597af7696e064799a62a4f093c39bbabb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n597af7696e064799a62a4f093c39bbabb3 .
+_:n597af7696e064799a62a4f093c39bbabb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:n597af7696e064799a62a4f093c39bbabb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://purl.org/spar/mito/Mention> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://www.oed.com/dictionary/mention_n?tl=true/> .
+_:n597af7696e064799a62a4f093c39bbabb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:n597af7696e064799a62a4f093c39bbabb4 .
+_:n597af7696e064799a62a4f093c39bbabb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation> .
+_:n597af7696e064799a62a4f093c39bbabb3 <http://www.w3.org/2002/07/owl#cardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:n597af7696e064799a62a4f093c39bbabb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n597af7696e064799a62a4f093c39bbabb6 .
+_:n597af7696e064799a62a4f093c39bbabb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:n597af7696e064799a62a4f093c39bbabb4 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/spar/mito/hasMentioningEntity> .
+<http://purl.org/spar/mito/Mention> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://purl.org/linked-data/registry#statusStable> .
+_:n597af7696e064799a62a4f093c39bbabb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:n597af7696e064799a62a4f093c39bbabb8 .
+_:n597af7696e064799a62a4f093c39bbabb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
