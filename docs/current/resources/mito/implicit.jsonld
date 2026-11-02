@@ -2,8 +2,8 @@
   {
     "@id": "http://purl.org/spar/mito/implicit",
     "@type": [
-      "http://purl.org/spar/mito/MentionType",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "http://purl.org/spar/mito/MentionType"
     ],
     "http://purl.org/vocab/vann/example": [
       {
