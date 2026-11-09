@@ -1,0 +1,20 @@
+@prefix mito: <http://purl.org/spar/mito/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix reg: <http://purl.org/linked-data/registry#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+mito:isMentionedEntityOf a owl:ObjectProperty ;
+    rdfs:label "is mentioned entity of"@en ;
+    vann:example """
+    :my-mentioned-entity 
+        mito:isMentionedEntityOf :my-mention .
+
+    :my-mention a mito:Mention .
+    """ ;
+    rdfs:comment "The relation between a mentioned entity and a mention."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/mito> ;
+    owl:inverseOf mito:hasMentionedEntity ;
+    vs:term_status reg:statusStable .
+

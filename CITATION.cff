@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 title: The Mention Typing Ontology (MiTO)
 message: >-
-If you use this software, please cite it using the
-metadata from this file.
+  If you use this software, please cite it using the
+  metadata from this file.
 type: software
 authors:
 - given-names: Matteo
@@ -13,12 +13,14 @@ url: 'http://www.sparontologies.net/ontologies/mito'
 abstract: The Mention Typing Ontology (MiTO) is an ontology written in OWL 2 DL. Its aim is to enable the formalization of the concept of mentions. 
 keywords:
 - SPAR Ontologies
-- Semantic Publishing and Referencing Ontologies
-- scholarly mentions
+- OWL ontology
+- mentions
+- software mentions
 - bibliometrics
-- scholarly publishing
+- scholarly communication
 - scientometrics
 - semantic publishing
+- research software
 license: CC-BY-4.0
-version: 1.1.1
-date-released: '2026-10-05'
+version: 1.1.2
+date-released: '2026-11-09'

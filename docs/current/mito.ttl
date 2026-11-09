@@ -14,6 +14,10 @@
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+bibo:doi a owl:AnnotationProperty .
+
+bibo:status a owl:AnnotationProperty .
+
 dc:contributor a owl:AnnotationProperty .
 
 dc:creator a owl:AnnotationProperty .
@@ -22,13 +26,51 @@ dc:date a owl:AnnotationProperty .
 
 dc:description a owl:AnnotationProperty .
 
+dc:language a owl:AnnotationProperty .
+
 dc:title a owl:AnnotationProperty .
+
+dcterms:bibliographicCitation a owl:AnnotationProperty .
+
+dcterms:created a owl:AnnotationProperty .
+
+dcterms:issued a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:modified a owl:AnnotationProperty .
+
+dcterms:publisher a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+foaf:logo a owl:AnnotationProperty .
+
+schema:codeRepository a owl:AnnotationProperty .
+
+schema:image a owl:AnnotationProperty .
+
+schema:includedInDataCatalog a owl:AnnotationProperty .
+
+schema:keywords a owl:AnnotationProperty .
+
+skos:note a owl:AnnotationProperty .
+
+vann:changes a owl:AnnotationProperty .
+
+vann:example a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+vs:term_status a owl:AnnotationProperty .
 
 <http://purl.org/spar/mito> a owl:Ontology ;
     dc:contributor "Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)"^^xsd:string,
         "Silvio Peroni (https://orcid.org/0000-0003-0530-4305)"^^xsd:string ;
     dc:creator "Matteo Guenci (https://orcid.org/0009-0006-3139-1667)"^^xsd:string ;
-    dc:date "2026-10-05" ;
+    dc:date "2026-11-09" ;
     dc:description """
 The **_Mention Typing Ontology (MiTO)_** is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. 
 
@@ -218,7 +260,7 @@ Which in-text reference pointers are linked to a mention via annotations?
     dcterms:created "2024-05-09" ;
     dcterms:issued "2024-05-09" ;
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-10-05" ;
+    dcterms:modified "2026-11-09" ;
     dcterms:publisher <https://ror.org/00wb4mk85> ;
     dcterms:source <https://github.com/SPAROntologies/mito/blob/master/docs/cq.md> ;
     bibo:doi "TBA" ;
@@ -227,11 +269,11 @@ Which in-text reference pointers are linked to a mention via annotations?
     vann:preferredNamespacePrefix "mito"@en ;
     vann:preferredNamespaceUri "http://purl.org/spar/mito"@en ;
     rdfs:seeAlso <http://www.sparontologies.net/ontologies/mito> ;
-    owl:backwardCompatibleWith mito:2026-08-14 ;
+    owl:backwardCompatibleWith mito:2026-10-05 ;
     owl:imports <http://www.ontologydesignpatterns.org/cp/owl/situation.owl> ;
-    owl:priorVersion mito:2026-08-14 ;
-    owl:versionIRI mito:2026-10-05 ;
-    owl:versionInfo "1.1.1"^^xsd:string ;
+    owl:priorVersion mito:2026-10-05 ;
+    owl:versionIRI mito:2026-11-09 ;
+    owl:versionInfo "1.1.2"^^xsd:string ;
     foaf:logo <https://github.com/SPAROntologies/sparontologies.github.io/blob/master/static/img/spar/spar-logo.png> ;
     schema:codeRepository <https://github.com/SPAROntologies/mito> ;
     schema:image <https://github.com/SPAROntologies/mito/blob/master/docs/current/mito.png> ;
@@ -239,12 +281,14 @@ Which in-text reference pointers are linked to a mention via annotations?
     dc:language <http://id.loc.gov/vocabulary/iso639-2/eng> ;
     schema:keywords 
         "SPAR Ontologies"@en ,
-        "Semantic Publishing and Referencing Ontologies"@en ,
-        "bibliometrics"@en,
-        "scholarly mentions"@en,
-        "scholarly publishing"@en,
-        "scientometrics"@en,
-        "semantic publishing"@en .
+        "OWL ontology"@en ,
+        "semantic publishing"@en ,
+        "scholarly communication"@en ,
+        "bibliometrics"@en ,
+        "scientometrics"@en ,
+        "mentions"@en ,
+        "software mentions"@en ,
+        "research software"@en .
 
 mito:explicit a mito:MentionType,
         owl:NamedIndividual ;
