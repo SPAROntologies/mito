@@ -12,12 +12,15 @@
    xmlns:vann="http://purl.org/vocab/vann/"
    xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
+  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/spar/mito">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sebastian Barzaghi (https://orcid.org/0000-0002-0799-1527)</dc:contributor>
     <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Silvio Peroni (https://orcid.org/0000-0003-0530-4305)</dc:contributor>
     <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matteo Guenci (https://orcid.org/0009-0006-3139-1667)</dc:creator>
-    <dc:date>2026-10-05</dc:date>
+    <dc:date>2026-11-09</dc:date>
     <dc:description xml:lang="en">
 The **_Mention Typing Ontology (MiTO)_** is an OWL 2 DL ontology designed to formalize the concept of mentions, which are crucial for bibliometric analysis, as they allow researchers to track references to entities (e.g., software) in scholarly communication. 
 
@@ -207,7 +210,7 @@ Which in-text reference pointers are linked to a mention via annotations?
     <dcterms:created>2024-05-09</dcterms:created>
     <dcterms:issued>2024-05-09</dcterms:issued>
     <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
-    <dcterms:modified>2026-10-05</dcterms:modified>
+    <dcterms:modified>2026-11-09</dcterms:modified>
     <dcterms:publisher rdf:resource="https://ror.org/00wb4mk85"/>
     <dcterms:source rdf:resource="https://github.com/SPAROntologies/mito/blob/master/docs/cq.md"/>
     <bibo:doi>TBA</bibo:doi>
@@ -216,26 +219,155 @@ Which in-text reference pointers are linked to a mention via annotations?
     <vann:preferredNamespacePrefix xml:lang="en">mito</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri xml:lang="en">http://purl.org/spar/mito</vann:preferredNamespaceUri>
     <rdfs:seeAlso rdf:resource="http://www.sparontologies.net/ontologies/mito"/>
-    <owl:backwardCompatibleWith rdf:resource="http://purl.org/spar/mito/2026-08-14"/>
+    <owl:backwardCompatibleWith rdf:resource="http://purl.org/spar/mito/2026-10-05"/>
     <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl"/>
-    <owl:priorVersion rdf:resource="http://purl.org/spar/mito/2026-08-14"/>
-    <owl:versionIRI rdf:resource="http://purl.org/spar/mito/2026-10-05"/>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.1.1</owl:versionInfo>
+    <owl:priorVersion rdf:resource="http://purl.org/spar/mito/2026-10-05"/>
+    <owl:versionIRI rdf:resource="http://purl.org/spar/mito/2026-11-09"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.1.2</owl:versionInfo>
     <foaf:logo rdf:resource="https://github.com/SPAROntologies/sparontologies.github.io/blob/master/static/img/spar/spar-logo.png"/>
     <schema:codeRepository rdf:resource="https://github.com/SPAROntologies/mito"/>
     <schema:image rdf:resource="https://github.com/SPAROntologies/mito/blob/master/docs/current/mito.png"/>
     <schema:includedInDataCatalog rdf:resource="https://fairsharing.org/"/>
     <dc:language rdf:resource="http://id.loc.gov/vocabulary/iso639-2/eng"/>
     <schema:keywords xml:lang="en">SPAR Ontologies</schema:keywords>
-    <schema:keywords xml:lang="en">Semantic Publishing and Referencing Ontologies</schema:keywords>
-    <schema:keywords xml:lang="en">bibliometrics</schema:keywords>
-    <schema:keywords xml:lang="en">scholarly mentions</schema:keywords>
-    <schema:keywords xml:lang="en">scholarly publishing</schema:keywords>
-    <schema:keywords xml:lang="en">scientometrics</schema:keywords>
+    <schema:keywords xml:lang="en">OWL ontology</schema:keywords>
     <schema:keywords xml:lang="en">semantic publishing</schema:keywords>
+    <schema:keywords xml:lang="en">scholarly communication</schema:keywords>
+    <schema:keywords xml:lang="en">bibliometrics</schema:keywords>
+    <schema:keywords xml:lang="en">scientometrics</schema:keywords>
+    <schema:keywords xml:lang="en">mentions</schema:keywords>
+    <schema:keywords xml:lang="en">software mentions</schema:keywords>
+    <schema:keywords xml:lang="en">research software</schema:keywords>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+  <rdf:Description rdf:about="http://purl.org/spar/mito/isMentionedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is mentioned by</rdfs:label>
+    <vann:example>
+    :my-software a fabio:Software ;
+        dcterms:title "Tensorflow" ;
+        mito:isMentionedBy :my-journal-article .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between the two sides involved in the act of mentioning, with one entity being mentioned by the other.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <owl:inverseOf rdf:resource="http://purl.org/spar/mito/mentions"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentioningEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has mentioning entity</rdfs:label>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between a mention and a mentioning entity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has mention type</rdfs:label>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentionType mito:explicit .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between a mention and the characterisation of that mention.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <rdfs:range rdf:resource="http://purl.org/spar/mito/MentionType"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/MentionType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">mention type</rdfs:label>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentionType mito:explicit .
+
+    mito:explicit a mito:MentionType .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The reified implicit or explicit characteristic of a mention.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/Mention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">mention</rdfs:label>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentioningEntity :my-mentioning-entity ;
+        mito:hasMentionedEntity :my-mentioned-entity ;
+        mito:hasMentionType mito:explicit .
+    </vann:example>
+    <rdfs:comment xml:lang="en">
+The action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
+</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <rdfs:seeAlso rdf:resource="https://www.oed.com/dictionary/mention_n?tl=true/"/>
+    <owl:equivalentClass rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb1"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+    <skos:note xml:lang="en">
+Originally: the action of calling to mind or commemorating something in speech or writing.
+    </skos:note>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">situation</rdfs:label>
+    <rdfs:comment xml:lang="en">A view on a set of entities. It can be seen as a _relational context_, reifying a relation.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/mentions">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">mentions</rdfs:label>
+    <vann:example>
+	:my-journal-article a fabio:JournalArticle ;
+        dcterms:title "Deep Learning Approaches for Medical Image Segmentation" ;
+        mito:mentions :my-software .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between the two sides involved in the act of mentioning, with one entity mentioning the other.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionedEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb6">
+    <rdf:first rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb2"/>
+    <rdf:rest rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb7"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/isMentionedEntityOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">is mentioned entity of</rdfs:label>
+    <vann:example>
+    :my-mentioned-entity 
+        mito:isMentionedEntityOf :my-mention .
+
+    :my-mention a mito:Mention .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between a mentioned entity and a mention.</rdfs:comment>
+    <owl:inverseOf rdf:resource="http://purl.org/spar/mito/hasMentionedEntity"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionedEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has mentioned entity</rdfs:label>
+    <vann:example>
+    :my-mention a mito:Mention ;
+        mito:hasMentionedEntity :my-mentioned-entity .
+    </vann:example>
+    <rdfs:comment xml:lang="en">The relation between a mention and a mentioned entity.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
+    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/spar/mito/explicit">
     <rdf:type rdf:resource="http://purl.org/spar/mito/MentionType"/>
@@ -253,134 +385,6 @@ A type of mention according to which there is a direct, unambiguous, and literal
     <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb7">
-    <rdf:first rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb3"/>
-    <rdf:rest rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb8"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionedEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has mentioned entity</rdfs:label>
-    <vann:example>
-    :my-mention a mito:Mention ;
-        mito:hasMentionedEntity :my-mentioned-entity .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between a mention and a mentioned entity.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/isMentionedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">is mentioned by</rdfs:label>
-    <vann:example>
-    :my-software a fabio:Software ;
-        dcterms:title "Tensorflow" ;
-        mito:isMentionedBy :my-journal-article .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between the two sides involved in the act of mentioning, with one entity being mentioned by the other.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <owl:inverseOf rdf:resource="http://purl.org/spar/mito/mentions"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/isMentionedEntityOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">is mentioned entity of</rdfs:label>
-    <vann:example>
-    :my-mentioned-entity 
-        mito:isMentionedEntityOf :my-mention .
-
-    :my-mention a mito:Mention .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between a mentioned entity and a mention.</rdfs:comment>
-    <owl:inverseOf rdf:resource="http://purl.org/spar/mito/hasMentionedEntity"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/mentions">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">mentions</rdfs:label>
-    <vann:example>
-	:my-journal-article a fabio:JournalArticle ;
-        dcterms:title "Deep Learning Approaches for Medical Image Segmentation" ;
-        mito:mentions :my-software .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between the two sides involved in the act of mentioning, with one entity mentioning the other.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentioningEntity">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has mentioning entity</rdfs:label>
-    <vann:example>
-    :my-mention a mito:Mention ;
-        mito:hasMentioningEntity :my-mentioning-entity .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between a mention and a mentioning entity.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:intersectionOf rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb5"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb2">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionType"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/MentionType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">mention type</rdfs:label>
-    <vann:example>
-    :my-mention a mito:Mention ;
-        mito:hasMentionType mito:explicit .
-
-    mito:explicit a mito:MentionType .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The reified implicit or explicit characteristic of a mention.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/hasMentionType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">has mention type</rdfs:label>
-    <vann:example>
-    :my-mention a mito:Mention ;
-        mito:hasMentionType mito:explicit .
-    </vann:example>
-    <rdfs:comment xml:lang="en">The relation between a mention and the characterisation of that mention.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/spar/mito/Mention"/>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <rdfs:range rdf:resource="http://purl.org/spar/mito/MentionType"/>
-    <rdfs:subPropertyOf rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/spar/mito/Mention">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">mention</rdfs:label>
-    <vann:example>
-    :my-mention a mito:Mention ;
-        mito:hasMentioningEntity :my-mentioning-entity ;
-        mito:hasMentionedEntity :my-mentioned-entity ;
-        mito:hasMentionType mito:explicit .
-    </vann:example>
-    <rdfs:comment xml:lang="en">
-The action or an act of referring to, remarking upon, or introducing the name of a person or thing in spoken or written discourse, often incidentally and as not necessarily essential to the discussion.
-</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
-    <rdfs:seeAlso rdf:resource="https://www.oed.com/dictionary/mention_n?tl=true/"/>
-    <owl:equivalentClass rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb1"/>
-    <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
-    <skos:note xml:lang="en">
-Originally: the action of calling to mind or commemorating something in speech or writing.
-    </skos:note>
-  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/spar/mito/implicit">
     <rdf:type rdf:resource="http://purl.org/spar/mito/MentionType"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -397,18 +401,33 @@ A type of mention according to which something is suggested or understood throug
     <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">situation</rdfs:label>
-    <rdfs:comment xml:lang="en">A view on a set of entities. It can be seen as a _relational context_, reifying a relation.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/example">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb5">
-    <rdf:first rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
-    <rdf:rest rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb6"/>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/modified">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/bibo/doi">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://schema.org/codeRepository">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://schema.org/image">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentioningEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb7">
+    <rdf:first rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb3"/>
+    <rdf:rest rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb8"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb8">
+    <rdf:first rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb4"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -416,20 +435,6 @@ A type of mention according to which something is suggested or understood throug
     <rdfs:comment xml:lang="en">The relation between a situation and something that situation is a setting for.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
     <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb4">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentioningEntity"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb8">
-    <rdf:first rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb4"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
-    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionedEntity"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/spar/mito/isMentioningEntityOf">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -445,14 +450,74 @@ A type of mention according to which something is suggested or understood throug
     <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/mito"/>
     <vs:term_status rdf:resource="http://purl.org/linked-data/registry#statusStable"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/source">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#note">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/issued">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://schema.org/keywords">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+    <owl:onProperty rdf:resource="http://purl.org/spar/mito/hasMentionType"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb5">
+    <rdf:first rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation"/>
+    <rdf:rest rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb6"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:intersectionOf rdf:nodeID="nec7c760ae1714037b05d424c6a97102bb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/logo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/bibliographicCitation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://schema.org/includedInDataCatalog">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/publisher">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/changes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb6">
-    <rdf:first rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb2"/>
-    <rdf:rest rdf:nodeID="n71f44db0a73149da9c34cf6720e7687cb7"/>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/created">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+  <rdf:Description rdf:about="http://purl.org/ontology/bibo/status">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </rdf:Description>
 </rdf:RDF>
