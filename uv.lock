@@ -4,5 +4,5 @@ requires-python = ">=3.13"
 
 [[package]]
 name = "mito"
-version = "1.1.1"
+version = "1.1.2"
 source = { virtual = "." }
